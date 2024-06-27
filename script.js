@@ -30,7 +30,7 @@ const resgistrarUser=()=>{
        
         localStorage.setItem("credenciales",JSON.stringify(objeto))
         localStorage.setItem("sesionIniciada","si")
-        window.location.href="ver-prefil.html"
+        window.location.href="ver-perfil.html"
 
         }else{
             alert("todos los campos son requeridos")
