@@ -15,6 +15,7 @@ let email=localStorage.getItem("perfil")? JSON.parse(localStorage.getItem("perfi
 const sigIn=()=>{
     let emailUsuario=document.getElementById("email").value
     let password=document.getElementById("password").value
+    localStorage.setItem()
     console.log(contraseña.contraseñaActual)
     console.log(email.email)
     if(password===contraseña.contraseñaActual&&emailUsuario===email.email){
@@ -22,6 +23,6 @@ const sigIn=()=>{
        window.location.href="ver-perfil.html"
     }
     else{
-        alert("error")
+        console.log("error")
     }
 }
