@@ -9,35 +9,44 @@ loginBtn.addEventListener('click', () => {
     container.classList.remove("active");
 });
 
-let contraseña=localStorage.getItem("contraseña")? JSON.parse(localStorage.getItem("contraseña")):[]
-let email=localStorage.getItem("perfil")? JSON.parse(localStorage.getItem("perfil")):[]
 
-const sigIn=()=>{
-    console.log("hola");
-    let emailUsuario=document.getElementById("email").value
+
+
+// registrar un usuario:
+let objetoCredenciales=localStorage.getItem("credenciales")? JSON.parse(localStorage.getItem("credenciales")):[]
+const resgistrarUser=()=>{
+    let nombreUser=document.getElementById("nombreUser").value
+    let apellidoUser=document.getElementById("apellidoUser").value
+    let emailUser=document.getElementById("emailUser").value
+    let passwordUser=document.getElementById("passwordUser").value
+
+    if(nombreUser!=""&&apellidoUser!=""&&emailUser!=""&&passwordUser!=""){
+        let objeto={
+            nombreUser,
+            apellidoUser,
+            emailUser,
+            passwordUser
+        }
+       
+        localStorage.setItem("credenciales",JSON.stringify(objeto))
+        localStorage.setItem("sesionIniciada","si")
+
+        }else{
+            alert("todos los campos son requeridos")
+        }
+       
+
+}
+
+const login=()=>{
+    let email=document.getElementById("email").value
     let password=document.getElementById("password").value
-    //localStorage.setItem()
-    console.log(contraseña.contraseñaActual)
-    console.log(email.email)
-    if(password===contraseña.contraseñaActual&&emailUsuario===email.email){
-       console.log("correcto")
-       window.location.href="ver-perfil.html"
+    let usuario=localStorage.getItem("credenciales")!=null? JSON.parse(localStorage.getItem("credenciales")):{}
+    if(email==usuario.emailUser&&password==usuario.passwordUser){
+        window.location.href="dashboard.html"
+    }else{
+        console.log("vacio o incorecto");
     }
-    else{
-        console.log("error")
-    }
-}
-const signUp=()=>{
-let nombreUser=document.getElementById("nombreUser").value
-let emailUser=document.getElementById("emailUser").value
-let passwordUser=document.getElementById("passwordUser").value
-let credencialesUser={
-    nombreUser:nombreUser,
-    emailUser:emailUser,
-    passwordUser:passwordUser
 }
 
-    console.log("hola");
-    localStorage.setItem("credenciales",JSON.stringify(credencialesUser))
-    window.location.href="ver-perfil.html"
-}
+
