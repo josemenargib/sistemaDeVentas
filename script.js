@@ -13,6 +13,7 @@ let contraseña=localStorage.getItem("contraseña")? JSON.parse(localStorage.get
 let email=localStorage.getItem("perfil")? JSON.parse(localStorage.getItem("perfil")):[]
 
 const sigIn=()=>{
+    console.log("hola");
     let emailUsuario=document.getElementById("email").value
     let password=document.getElementById("password").value
     localStorage.setItem()
@@ -25,4 +26,14 @@ const sigIn=()=>{
     else{
         console.log("error")
     }
+}
+
+let credencialesUser={
+    nombreUser,
+    emailUser,
+    passwordUser
+}
+const signUp=()=>{
+    console.log("hola");
+    localStorage.setItem("credenciales",JSON.stringify(credencialesUser))
 }
