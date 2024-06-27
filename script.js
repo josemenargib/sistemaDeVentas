@@ -16,7 +16,7 @@ const sigIn=()=>{
     console.log("hola");
     let emailUsuario=document.getElementById("email").value
     let password=document.getElementById("password").value
-    localStorage.setItem()
+    //localStorage.setItem()
     console.log(contraseña.contraseñaActual)
     console.log(email.email)
     if(password===contraseña.contraseñaActual&&emailUsuario===email.email){
@@ -27,13 +27,17 @@ const sigIn=()=>{
         console.log("error")
     }
 }
-
-let credencialesUser={
-    nombreUser,
-    emailUser,
-    passwordUser
-}
 const signUp=()=>{
+let nombreUser=document.getElementById("nombreUser").value
+let emailUser=document.getElementById("emailUser").value
+let passwordUser=document.getElementById("passwordUser").value
+let credencialesUser={
+    nombreUser:nombreUser,
+    emailUser:emailUser,
+    passwordUser:passwordUser
+}
+
     console.log("hola");
     localStorage.setItem("credenciales",JSON.stringify(credencialesUser))
+    window.location.href="ver-perfil.html"
 }
